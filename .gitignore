@@ -23,7 +23,6 @@ artifacts/
 /wwwroot/
 
 # Ignore EF Core migrations and database files (optional)
-Migrations/
 App_Data/
 *.db
 *.sqlite

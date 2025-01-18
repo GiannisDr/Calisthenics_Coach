@@ -8,7 +8,7 @@ public class AppDbContext : DbContext
     internal const string ConnectionsStringKey = "Database";
     private readonly string _connectionString;
     
-    public DbSet<User> Users { get; set; }
+    public DbSet<User?> Users { get; set; }
     public DbSet<Exercise> Exercises { get; set; }
     public DbSet<Workout> Workouts { get; set; }
     public DbSet<UserExerciseProgress> UserExerciseProgress { get; set; }
