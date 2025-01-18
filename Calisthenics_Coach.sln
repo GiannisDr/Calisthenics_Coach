@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calisthenics_Coach", "Calisthenics_Coach\Calisthenics_Coach.csproj", "{5B06C84F-A0CC-4FBF-AEBD-93D37B0EB7E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calisthenics.Database", "Calisthenics.Database\Calisthenics.Database.csproj", "{4C71D4EF-F12A-4363-9159-B1DE94D428E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B06C84F-A0CC-4FBF-AEBD-93D37B0EB7E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B06C84F-A0CC-4FBF-AEBD-93D37B0EB7E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B06C84F-A0CC-4FBF-AEBD-93D37B0EB7E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B06C84F-A0CC-4FBF-AEBD-93D37B0EB7E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C71D4EF-F12A-4363-9159-B1DE94D428E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C71D4EF-F12A-4363-9159-B1DE94D428E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C71D4EF-F12A-4363-9159-B1DE94D428E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C71D4EF-F12A-4363-9159-B1DE94D428E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

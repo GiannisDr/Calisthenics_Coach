@@ -1,0 +1,14 @@
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\bin\Debug\net8.0\Calisthenics.Database.deps.json
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\bin\Debug\net8.0\Calisthenics.Database.runtimeconfig.json
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\bin\Debug\net8.0\Calisthenics.Database.dll
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\bin\Debug\net8.0\Calisthenics.Database.pdb
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\Calisthenics.Database.csproj.AssemblyReference.cache
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\Calisthenics.Database.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\Calisthenics.Database.AssemblyInfoInputs.cache
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\Calisthenics.Database.AssemblyInfo.cs
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\Calisthenics.Database.csproj.CoreCompileInputs.cache
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\Calisthenics.Database.dll
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\refint\Calisthenics.Database.dll
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\Calisthenics.Database.pdb
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\Calisthenics.Database.genruntimeconfig.cache
+C:\Users\giann\RiderProjects\Calisthenics_Coach\Calisthenics.Database\obj\Debug\net8.0\ref\Calisthenics.Database.dll
