@@ -1,10 +1,10 @@
-using Calisthenics.Database.Persistence.Enums;
+using Calisthenics.Domain.Common;
+using Calisthenics.Domain.Enums;
 
 namespace Calisthenics.Database.Persistence.Entities;
 
-public class User
+public class UserEntity: BaseEntity
 {
-    public int Id { get; set; }
     public string Username { get; set; }
     public string Email { get; set; }
     public string PasswordHash { get; set; }
@@ -15,6 +15,6 @@ public class User
     public WorkoutFrequency Frequency { get; set; }
     public ExperienceLevel ExperienceLevel { get; set; }
     // Navigation Properties
-    public ICollection<UserExerciseProgress> UserExerciseProgress { get; set; }
-    public ICollection<WorkoutProgression> WorkoutProgression { get; set; }
+    public ICollection<UserExerciseProgressEntity> UserExerciseProgress { get; set; }
+    public ICollection<WorkoutProgressionEntity> WorkoutProgression { get; set; }
 }

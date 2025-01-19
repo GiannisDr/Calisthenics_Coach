@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Calisthenics.Database.Persistence.Configurations;
 
-public class UserExerciseProgressConfiguration : IEntityTypeConfiguration<UserExerciseProgress>
+public class UserExerciseProgressConfiguration : IEntityTypeConfiguration<UserExerciseProgressEntity>
 {
-    public void Configure(EntityTypeBuilder<UserExerciseProgress> builder)
+    public void Configure(EntityTypeBuilder<UserExerciseProgressEntity> builder)
     {
         // Table name
         builder.ToTable("UserExerciseProgress");
@@ -15,16 +15,16 @@ public class UserExerciseProgressConfiguration : IEntityTypeConfiguration<UserEx
         builder.HasKey(ue => ue.Id);
 
         // Foreign Key to User
-        builder.HasOne(ue => ue.User)
+        builder.HasOne(ue => ue.UserEntity)
             .WithMany(u => u.UserExerciseProgress)
             .HasForeignKey(ue => ue.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Foreign Key to Exercise
-        builder.HasOne(ue => ue.Exercise)
-            .WithMany(e => e.UserExerciseProgress)
-            .HasForeignKey(ue => ue.ExerciseId)
-            .OnDelete(DeleteBehavior.Cascade);
+        // // Foreign Key to Exercise
+        // builder.HasOne(ue => ue.ExerciseEntity)
+        //     .WithMany(e => e.UserExerciseProgress)
+        //     .HasForeignKey(ue => ue.ExerciseId)
+        //     .OnDelete(DeleteBehavior.Cascade);
 
         // Property configurations
         builder.Property(ue => ue.RepsCompleted)

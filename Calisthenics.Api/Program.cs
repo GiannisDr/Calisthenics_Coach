@@ -1,10 +1,17 @@
+using Calisthenics.Api.Exercises.Extensions;
 using Calisthenics.Api.Infrastructure.Endpoints;
 using Calisthenics.Api.Infrastructure.Swagger;
-using Serilog;
+using Calisthenics.Api.Users.Extensions;
+using Calisthenics.Database.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var logger = new LoggerConfiguration().CreateLogger();
+builder.Configuration.Sources.Clear();
+builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, false)
+    .AddEnvironmentVariables();
+
 
 builder.Services.AddLogging(x =>
 {
@@ -15,11 +22,19 @@ builder.Services.AddLogging(x =>
 
 builder.Services.AddHealthChecks();
 builder.Services.ConfigureSwagger();
-
 builder.Services.RegisterEndpoints();
+
+builder.Services.AddCalisthenicsDatabase(builder.Configuration);
+
+builder.Services.AddUserFeature();
+builder.Services.AddExerciseFeature();
+
+
+
 var app = builder.Build();
 app.UseConfiguredSwagger();
 app.UseRegisteredEndpoints();
+
 
 
 //test api

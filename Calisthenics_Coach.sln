@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calisthenics.Api", "Calisth
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calisthenics.Database", "Calisthenics.Database\Calisthenics.Database.csproj", "{4C71D4EF-F12A-4363-9159-B1DE94D428E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calisthenics.Domain", "Calisthenics.Domain\Calisthenics.Domain.csproj", "{AFBB3FEB-01C2-4254-906E-7B1272D726CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{4C71D4EF-F12A-4363-9159-B1DE94D428E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C71D4EF-F12A-4363-9159-B1DE94D428E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C71D4EF-F12A-4363-9159-B1DE94D428E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFBB3FEB-01C2-4254-906E-7B1272D726CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFBB3FEB-01C2-4254-906E-7B1272D726CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFBB3FEB-01C2-4254-906E-7B1272D726CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFBB3FEB-01C2-4254-906E-7B1272D726CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

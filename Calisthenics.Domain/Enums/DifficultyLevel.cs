@@ -1,4 +1,4 @@
-namespace Calisthenics.Database.Persistence.Enums;
+namespace Calisthenics.Domain.Enums;
 
 public enum DifficultyLevel
 {

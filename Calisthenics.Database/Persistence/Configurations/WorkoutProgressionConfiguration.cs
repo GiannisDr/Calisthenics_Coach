@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Calisthenics.Database.Persistence.Configurations;
 
-public class WorkoutProgressionConfiguration : IEntityTypeConfiguration<WorkoutProgression>
+public class WorkoutProgressionConfiguration : IEntityTypeConfiguration<WorkoutProgressionEntity>
 {
-    public void Configure(EntityTypeBuilder<WorkoutProgression> builder)
+    public void Configure(EntityTypeBuilder<WorkoutProgressionEntity> builder)
     {
         // Table name
         builder.ToTable("WorkoutProgression");
@@ -15,13 +15,13 @@ public class WorkoutProgressionConfiguration : IEntityTypeConfiguration<WorkoutP
         builder.HasKey(wp => wp.Id);
 
         // Foreign Key to User
-        builder.HasOne(wp => wp.User)
+        builder.HasOne(wp => wp.UserEntity)
             .WithMany(u => u.WorkoutProgression)
             .HasForeignKey(wp => wp.UserId)
             .OnDelete(DeleteBehavior.Cascade);
 
         // Foreign Key to Workout
-        builder.HasOne(wp => wp.Workout)
+        builder.HasOne(wp => wp.WorkoutEntity)
             .WithMany(w => w.WorkoutProgression)
             .HasForeignKey(wp => wp.WorkoutId)
             .OnDelete(DeleteBehavior.Cascade);

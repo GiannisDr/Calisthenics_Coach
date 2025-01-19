@@ -1,16 +1,17 @@
+using Calisthenics.Domain.Common;
+
 namespace Calisthenics.Database.Persistence.Entities;
 
-public class WorkoutProgression
+public class WorkoutProgressionEntity : BaseEntity
 {
-    public int Id { get; set; }
     
     // Foreign Key to User
     public int UserId { get; set; }
-    public User User { get; set; }
+    public UserEntity UserEntity { get; set; }
     
     // Foreign Key to Workout
     public int WorkoutId { get; set; }
-    public Workout Workout { get; set; }
+    public WorkoutEntity WorkoutEntity { get; set; }
 
     // Number of workouts completed at a certain difficulty level
     public int WorkoutsCompleted { get; set; }

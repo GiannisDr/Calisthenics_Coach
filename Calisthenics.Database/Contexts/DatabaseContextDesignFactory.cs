@@ -2,7 +2,10 @@ using Microsoft.EntityFrameworkCore.Design;
 
 namespace Calisthenics.Database.Contexts;
 
-public class DatabaseContetDesignFactory: IDesignTimeDbContextFactory<AppDbContext>
+/// <summary>
+/// For the migrations
+/// </summary>
+public class DatabaseContextDesignFactory: IDesignTimeDbContextFactory<AppDbContext>
 {
     public AppDbContext CreateDbContext(string[] args)
     {

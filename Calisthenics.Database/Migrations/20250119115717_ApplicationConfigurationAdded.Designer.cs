@@ -3,6 +3,7 @@ using System;
 using Calisthenics.Database.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Calisthenics.Database.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250119115717_ApplicationConfigurationAdded")]
+    partial class ApplicationConfigurationAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -42,6 +45,20 @@ namespace Calisthenics.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ApplicationConfigurations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Key = "AppName",
+                            Value = "Calisthenics Coach"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Key = "Environment",
+                            Value = "Development"
+                        });
                 });
 
             modelBuilder.Entity("Calisthenics.Database.Persistence.Entities.ExerciseEntity", b =>
@@ -65,12 +82,12 @@ namespace Calisthenics.Database.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("character varying(100)");
 
-                    b.Property<int?>("WorkoutEntityId")
+                    b.Property<int>("WorkoutId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("WorkoutEntityId");
+                    b.HasIndex("WorkoutId");
 
                     b.ToTable("Exercises");
                 });
@@ -130,7 +147,7 @@ namespace Calisthenics.Database.Migrations
                     b.Property<TimeSpan?>("CompletionTime")
                         .HasColumnType("interval");
 
-                    b.Property<int>("ExerciseEntityId")
+                    b.Property<int?>("ExerciseEntityId")
                         .HasColumnType("integer");
 
                     b.Property<int>("ExerciseId")
@@ -158,6 +175,8 @@ namespace Calisthenics.Database.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ExerciseEntityId");
+
+                    b.HasIndex("ExerciseId");
 
                     b.HasIndex("UserId");
 
@@ -240,16 +259,24 @@ namespace Calisthenics.Database.Migrations
 
             modelBuilder.Entity("Calisthenics.Database.Persistence.Entities.ExerciseEntity", b =>
                 {
-                    b.HasOne("Calisthenics.Database.Persistence.Entities.WorkoutEntity", null)
+                    b.HasOne("Calisthenics.Database.Persistence.Entities.WorkoutEntity", "WorkoutEntity")
                         .WithMany("Exercises")
-                        .HasForeignKey("WorkoutEntityId");
+                        .HasForeignKey("WorkoutId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("WorkoutEntity");
                 });
 
             modelBuilder.Entity("Calisthenics.Database.Persistence.Entities.UserExerciseProgressEntity", b =>
                 {
+                    b.HasOne("Calisthenics.Database.Persistence.Entities.ExerciseEntity", null)
+                        .WithMany("ProgressRecords")
+                        .HasForeignKey("ExerciseEntityId");
+
                     b.HasOne("Calisthenics.Database.Persistence.Entities.ExerciseEntity", "ExerciseEntity")
-                        .WithMany()
-                        .HasForeignKey("ExerciseEntityId")
+                        .WithMany("UserExerciseProgress")
+                        .HasForeignKey("ExerciseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -292,6 +319,13 @@ namespace Calisthenics.Database.Migrations
                     b.Navigation("UserEntity");
 
                     b.Navigation("WorkoutEntity");
+                });
+
+            modelBuilder.Entity("Calisthenics.Database.Persistence.Entities.ExerciseEntity", b =>
+                {
+                    b.Navigation("ProgressRecords");
+
+                    b.Navigation("UserExerciseProgress");
                 });
 
             modelBuilder.Entity("Calisthenics.Database.Persistence.Entities.UserEntity", b =>

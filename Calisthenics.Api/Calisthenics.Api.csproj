@@ -12,4 +12,13 @@
       <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Progression\" />
+      <Folder Include="Workouts\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Calisthenics.Database\Calisthenics.Database.csproj" />
+    </ItemGroup>
+
 </Project>

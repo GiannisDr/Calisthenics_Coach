@@ -4,9 +4,9 @@ using Calisthenics.Database.Repositories.Interfaces;
 
 namespace Calisthenics.Database.Repositories;
 
-public class WorkoutRepository : Repository<WorkoutEntity> , IWorkoutRepository
+public class ExerciseRepository: Repository<ExerciseEntity> , IExerciseRepository
 {
-    public WorkoutRepository(AppDbContext context) : base(context)
+    public ExerciseRepository(AppDbContext context) : base(context)
     {
     }
 } 

@@ -1,16 +1,17 @@
+using Calisthenics.Domain.Common;
+
 namespace Calisthenics.Database.Persistence.Entities;
 
-public class UserExerciseProgress
+public class UserExerciseProgressEntity : BaseEntity
 {
-    public int Id { get; set; }
     
     // Foreign Key to User
     public int UserId { get; set; }
-    public User User { get; set; }
+    public UserEntity UserEntity { get; set; }
     
     // Foreign Key to Exercise
     public int ExerciseId { get; set; }
-    public Exercise Exercise { get; set; }
+    public ExerciseEntity ExerciseEntity { get; set; }
     
     // Reps and Sets completed by the user
     public int RepsCompleted { get; set; }
