@@ -2,6 +2,7 @@ using Calisthenics.Api.Exercises.Extensions;
 using Calisthenics.Api.Infrastructure.Endpoints;
 using Calisthenics.Api.Infrastructure.Swagger;
 using Calisthenics.Api.Users.Extensions;
+using Calisthenics.Clients;
 using Calisthenics.Database.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,11 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true, false)
     .AddEnvironmentVariables();
 
+builder.Configuration
+    .AddUserSecrets<Program>()
+    .Build();
+
+builder.Services.AddClients(builder.Configuration);
 
 builder.Services.AddLogging(x =>
 {
@@ -30,11 +36,9 @@ builder.Services.AddUserFeature();
 builder.Services.AddExerciseFeature();
 
 
-
 var app = builder.Build();
 app.UseConfiguredSwagger();
 app.UseRegisteredEndpoints();
-
 
 
 //test api

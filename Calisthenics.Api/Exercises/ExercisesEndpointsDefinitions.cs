@@ -16,16 +16,19 @@ public class ExercisesEndpointsDefinitions : IEndpointsDefinitions
         group.MapGet("/", GetExercises);
         group.MapPost("/", AddExercise);
         group.MapDelete("/{id:int}", DeleteExercise);
+        group.MapGet("/generate", GetGeneratedExercises);
     }
     
-    private static async Task<IResult> GetExercises([FromServices] IExerciseService exerciseService,
+    private static async Task<IResult> GetExercises(
+        [FromServices] IExerciseService exerciseService,
         CancellationToken cancellationToken = default)
     {
         var exercises = await exerciseService.GetAll(cancellationToken);
         return Results.Ok(exercises);
     }
     
-    private static async Task<IResult> AddExercise([FromServices] IExerciseService exerciseService,
+    private static async Task<IResult> AddExercise(
+        [FromServices] IExerciseService exerciseService,
         [FromBody]Exercise exercise,
         CancellationToken cancellationToken = default)
     {
@@ -33,11 +36,20 @@ public class ExercisesEndpointsDefinitions : IEndpointsDefinitions
         return Results.Ok();
     }
 
-    private static async Task<IResult> DeleteExercise([FromServices] IExerciseService exerciseService,
+    private static async Task<IResult> DeleteExercise(
+        [FromServices] IExerciseService exerciseService,
         int id,
         CancellationToken cancellationToken = default)
     {
         await exerciseService.DeleteAsync(id, cancellationToken);
         return Results.Ok();
+    }
+    
+    private static async Task<IResult> GetGeneratedExercises(
+        [FromServices] IExerciseService exerciseService,
+        CancellationToken cancellationToken = default)
+    {
+        var generatedExercises = await exerciseService.GetGeneratedExercises(cancellationToken);
+        return Results.Ok(generatedExercises);
     }
 }

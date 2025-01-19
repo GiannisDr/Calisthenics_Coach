@@ -7,4 +7,5 @@ public interface IExerciseService
     Task<List<Exercise>> GetAll(CancellationToken cancellationToken);
     Task AddAsync(Exercise request, CancellationToken cancellationToken);
     Task DeleteAsync(int id,CancellationToken cancellationToken);
+    Task<List<Exercise>> GetGeneratedExercises(CancellationToken cancellationToken);
 }
