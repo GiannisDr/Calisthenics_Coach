@@ -1,4 +1,4 @@
-namespace Calisthenics_Coach.Infrastructure.Endpoints;
+namespace Calisthenics.Api.Infrastructure.Endpoints;
 
 public interface IEndpointsDefinitions
 {

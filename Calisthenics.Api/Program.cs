@@ -1,5 +1,5 @@
-using Calisthenics_Coach.Infrastructure.Endpoints;
-using Calisthenics_Coach.Infrastructure.Swagger;
+using Calisthenics.Api.Infrastructure.Endpoints;
+using Calisthenics.Api.Infrastructure.Swagger;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);

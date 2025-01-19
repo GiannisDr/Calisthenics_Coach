@@ -1,9 +1,9 @@
-using Calisthenics_Coach.Infrastructure.Endpoints;
-using Calisthenics_Coach.Infrastructure.Swagger;
+using Calisthenics.Api.Infrastructure.Endpoints;
+using Calisthenics.Api.Infrastructure.Swagger;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace Calisthenics_Coach.HealthChecks;
+namespace Calisthenics.Api.HealthChecks;
 
 public class HealthCheckEndpointsDefinitions : IEndpointsDefinitions
 {
