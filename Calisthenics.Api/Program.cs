@@ -1,9 +1,11 @@
+using System.Text.Json.Serialization;
 using Calisthenics.Api.Exercises.Extensions;
 using Calisthenics.Api.Infrastructure.Endpoints;
 using Calisthenics.Api.Infrastructure.Swagger;
 using Calisthenics.Api.Users.Extensions;
 using Calisthenics.Clients;
 using Calisthenics.Database.Extensions;
+using Microsoft.AspNetCore.Http.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,10 @@ builder.Configuration
 builder.Configuration
     .AddUserSecrets<Program>()
     .Build();
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.SerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 
 builder.Services.AddClients(builder.Configuration);
 

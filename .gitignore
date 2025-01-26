@@ -44,6 +44,9 @@ pg_log/
 *.nupkg
 .nuget/
 
+# Ignore ToDo.txt file
+ToDo.txt
+
 # Ignore build and test output folders
 test_results/
 
@@ -70,7 +73,6 @@ node_modules/
 Thumbs.db
 
 # Ignore generated code files from Swagger, OpenAPI, etc.
-swagger/
 
 # Ignore local database files if using SQLite or others
 *.sqlite

@@ -1,4 +1,5 @@
 using Calisthenics.Database.Persistence.Entities;
+using Calisthenics.Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -13,10 +14,12 @@ public class UserConfiguration : IEntityTypeConfiguration<UserEntity>
         builder.Property(u => u.Email).IsRequired().HasMaxLength(100);
         builder.Property(u => u.PasswordHash).IsRequired();
         builder.Property(u => u.CreatedAt).HasDefaultValueSql("CURRENT_TIMESTAMP");
-
+        builder.Property(u => u.LastUpdated).ValueGeneratedOnUpdate().HasDefaultValueSql("CURRENT_TIMESTAMP");
         builder.Property(u => u.Age).IsRequired();
         builder.Property(u => u.Weight).IsRequired();
         builder.Property(u => u.Frequency).HasConversion<int>();
         builder.Property(u => u.ExperienceLevel).HasConversion<int>();
+        builder.Property(u => u.Role)
+            .HasDefaultValue(UserRole.Student);
     }
 }

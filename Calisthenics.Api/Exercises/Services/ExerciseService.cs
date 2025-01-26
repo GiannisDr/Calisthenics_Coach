@@ -1,7 +1,9 @@
+using System.Linq.Expressions;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using Calisthenics.Clients;
+using Calisthenics.Database.Persistence.Entities;
 using Calisthenics.Database.Repositories.Interfaces;
 using Calisthenics.Domain.Enums;
 using Calisthenics.Domain.Models;
@@ -85,6 +87,18 @@ public class ExerciseService : IExerciseService
             }
         }
         return exercises;
+    }
+
+    public async Task<List<Exercise>> GetByDifficultyLevel(DifficultyLevel difficultyLevel, CancellationToken cancellationToken)
+    {
+        Expression<Func<ExerciseEntity, bool>> predicate = exercise => exercise.DifficultyLevel == difficultyLevel;
+        var exercisesEntities = await _exerciseRepository.FindAsync(predicate);
+        if (exercisesEntities.Count == 0)
+        {
+            return [];
+        }
+
+        return exercisesEntities.Select(x => x.ToDomain()).ToList();
     }
 }
 
